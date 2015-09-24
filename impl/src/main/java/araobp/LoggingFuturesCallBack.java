@@ -1,4 +1,4 @@
-package jp.co.nec.impl;
+package araobp;
 
 import org.slf4j.Logger;
 

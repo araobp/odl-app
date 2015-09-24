@@ -13,7 +13,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html INTERNAL
     <version>1.6.0-SNAPSHOT</version>
   </parent>
 
-  <groupId>jp.co.nec</groupId>
+  <groupId>araobp</groupId>
   <artifactId>hello-aggregator</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>hello</name>

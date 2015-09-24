@@ -15,13 +15,13 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
   <repository>mvn:org.opendaylight.controller/features-restconf/${mdsal.version}/xml/features</repository>
   <feature name='odl-hello-api' version='${project.version}' description='OpenDaylight :: hello :: api'>
     <feature version='${yangtools.version}'>odl-yangtools-models</feature>
-    <bundle>mvn:jp.co.nec/hello-api/${project.version}</bundle>
+    <bundle>mvn:araobp/hello-api/${project.version}</bundle>
   </feature>
   <feature name='odl-hello' version='${project.version}' description='OpenDaylight :: hello'>
     <feature version='${mdsal.version}'>odl-mdsal-broker</feature>
     <feature version='${project.version}'>odl-hello-api</feature>
-    <bundle>mvn:jp.co.nec/hello-impl/${project.version}</bundle>
-    <configfile finalname="${configfile.directory}/hello.xml">mvn:jp.co.nec/hello-impl/${project.version}/xml/config</configfile>
+    <bundle>mvn:araobp/hello-impl/${project.version}</bundle>
+    <configfile finalname="${configfile.directory}/hello.xml">mvn:araobp/hello-impl/${project.version}/xml/config</configfile>
   </feature>
   <feature name='odl-hello-rest' version='${project.version}' description='OpenDaylight :: hello :: REST'>
     <feature version="${project.version}">odl-hello</feature>

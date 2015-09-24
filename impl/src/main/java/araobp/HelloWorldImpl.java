@@ -1,4 +1,4 @@
-package jp.co.nec.impl;
+package araobp;
 
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
