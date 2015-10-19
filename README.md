@@ -18,7 +18,7 @@ I just used the archetype to generate a maven project skeleton and added some co
 
 ##Building the app
 ```
-$ mvn clean install -DskipTests
+$ mvn clean install -DskipTests=true
 ```
 Then start karaf/target/assembly/bin/karaf
 
