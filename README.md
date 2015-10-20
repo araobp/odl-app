@@ -27,24 +27,44 @@ I just used the archetype to generate a maven project skeleton and added some co
 
 Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle can be added to the maven artifact.
 
-##[Step 4] Write your codes
+##[Step 4] Define YANG model
+
+This is the heart of the model-driven architecture:
+[hello.yang](./api/src/main/yang/hello.yang)
+
+Then,
+```
+$ cd api
+$ mvn clean install -DskipTests=true
+```
+That will generate Java binding (api bundle artifact) from the YANG model.
+
+You include the artifact in your pom.xml of your project to use the APIs.
+
+##[Step 5] Write your codes
 
 - src/main/yang ==> YANG model to manage your bundle via ODL Config Subsystem
 - src/main/config ==> The data to be sent to ODL via Config Subsystem (NETCONF) to configure your bundle at start up
 - src/main/java ==> The bundle you create
 
-##[Step 5] Build the app
+##[Step 6] Edit features
+Since I added a new bundle "hello-watcher", I had to modify the following files to add the bundle to the feature "hello":
+- [pom.xml](./features/pom.xml)
+- [features.xml](./features/src/main/features/features.xml)
+
+##[Step 7] Build the app
 ```
+$ cd <root>
 $ mvn clean install -DskipTests=true
 ```
-##[Step 6] Start Karaf
+##[Step 8] Start Karaf
 
 ```
 $ cd $HOME/odl-app/karaf/target/assembly/bin
 $ ./karaf
 ```
 
-##[Step 7] Check if the bundles you have created has started in Karaf container
+##[Step 9] Check if the bundles you have created has started in Karaf container
 ```
 opendaylight-user@root>la | grep hello
 169 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-api                           
@@ -61,7 +81,7 @@ opendaylight-user@root>log:tail
 ```
 It's working! Yeah!
 
-##[Step 8] Check if the RPC you have made is working properly
+##[Step 10] Check if the RPC you have made is working properly
 
 Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html), find "hello", copy and paste the following input data into the GUI input parameter form:
 
