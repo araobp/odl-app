@@ -33,7 +33,7 @@ Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle
 - src/main/config ==> The data to be sent to ODL via Config Subsystem (NETCONF) to configure your bundle at start up
 - src/main/java ==> The bundle you create
 
-##[Step 5] Builde the app
+##[Step 5] Build the app
 ```
 $ mvn clean install -DskipTests=true
 ```
