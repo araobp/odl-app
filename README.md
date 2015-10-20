@@ -1,4 +1,4 @@
-#OpenDaylight HelloWorld app
+#How to write your OpenDaylight application
 
 ##[Step 1] Maven repo setting for your $HOME/.m2
 https://wiki.opendaylight.org/view/GettingStarted:Development_Environment_Setup
