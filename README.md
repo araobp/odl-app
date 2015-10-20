@@ -25,6 +25,8 @@ I just used the archetype to generate a maven project skeleton and added some co
 ├── pom.xml
 ```
 
+Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle can be added to the maven artifact.
+
 ##Building the app
 ```
 $ mvn clean install -DskipTests=true
