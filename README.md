@@ -1,5 +1,9 @@
 #How to write your OpenDaylight application
 
+OpenDaylight provides us an interesting SDN framework. Especially, MD-SAL (stronglly consistent datastore to store tree-structure data with YANG schema lang) is very unique. MD-SAL also supports DCN (Data Change Notification -- pubsub), RPC, RESTCONF and RAFT-based clustering/HA (typically with three nodes).
+
+However, the biggest problem on ODL is its high learning curve. I have tried to develop a sample app on ODL. This project is to show how I have done.
+
 ##[Step 1] Maven repo setting for your $HOME/.m2
 https://wiki.opendaylight.org/view/GettingStarted:Development_Environment_Setup
 ```
