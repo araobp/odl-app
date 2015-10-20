@@ -35,8 +35,10 @@ Then start karaf/target/assembly/bin/karaf
 
 ```
 opendaylight-user@root>la | grep hello
-169 | Active   |  80 | 1.0.0.SNAPSHOT                            | hello-api                                                                
-170 | Active   |  80 | 1.0.0.SNAPSHOT                            | hello-impl                                          
+opendaylight-user@root>la | grep hello
+169 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-api                           
+170 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-impl                          
+171 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-watcher
 ```
 
 ##
