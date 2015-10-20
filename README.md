@@ -38,6 +38,13 @@ opendaylight-user@root>la | grep hello
 169 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-api                           
 170 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-impl                          
 171 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-watcher
+opendaylight-user@root>log:tail
+                              :
+2015-10-20 21:50:24,812 | INFO  | er [_value=8185] | WebSocketServer                  | 234 - org.opendaylight.controller.sal-rest-connector - 1.2.0.SNAPSHOT | Web socket server started at port 8185.
+2015-10-20 21:50:25,034 | INFO  | config-pusher    | HelloProvider                    | 170 - araobp.hello-impl - 1.0.0.SNAPSHOT | HelloProvider Session Initiated
+2015-10-20 21:50:25,045 | INFO  | config-pusher    | HelloProvider                    | 170 - araobp.hello-impl - 1.0.0.SNAPSHOT | Preparing to initialize the greeting registry
+2015-10-20 21:50:25,633 | INFO  | CommitFutures-0  | HelloProvider                    | 170 - araobp.hello-impl - 1.0.0.SNAPSHOT | Success! null
+2015-10-20 21:50:25,860 | INFO  | config-pusher    | HelloWatcher                     | 171 - araobp.hello-watcher - 1.0.0.SNAPSHOT | Watcher Session Initiated
 ```
 
 ##
