@@ -33,7 +33,7 @@ Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle
 - src/main/config ==> The data to be sent to ODL via Config Subsystem (NETCONF) to configure your bundle at start up
 - src/main/java ==> The bundle you create
 
-##[Step 5] Building the app
+##[Step 5] Builde the app
 ```
 $ mvn clean install -DskipTests=true
 ```
@@ -59,6 +59,7 @@ opendaylight-user@root>log:tail
 2015-10-20 21:50:25,633 | INFO  | CommitFutures-0  | HelloProvider                    | 170 - araobp.hello-impl - 1.0.0.SNAPSHOT | Success! null
 2015-10-20 21:50:25,860 | INFO  | config-pusher    | HelloWatcher                     | 171 - araobp.hello-watcher - 1.0.0.SNAPSHOT | Watcher Session Initiated
 ```
+It's working! Yeah!
 
 ##[Step 8] Check if the RPC you have made is working properly
 
