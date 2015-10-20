@@ -1,5 +1,12 @@
 #OpenDaylight HelloWorld app
 
+##Preparations
+https://wiki.opendaylight.org/view/GettingStarted:Development_Environment_Setup
+```
+cp -n ~/.m2/settings.xml{,.orig} ; \
+wget -q -O - https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > ~/.m2/settings.xml
+```
+
 OpenDaylight project provides "startup project archetype": https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:Startup_Project_Archetype
 
 I just used the archetype to generate a maven project skeleton and added some codes.
