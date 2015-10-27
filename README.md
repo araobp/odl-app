@@ -1,4 +1,4 @@
-#SDN controllers interworking as an OpenDaylight application
+#Inter-working between SDN controllers as an OpenDaylight application
 
 ##Chapter 1
 
