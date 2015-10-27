@@ -18,10 +18,14 @@ If your SDN controller also follows this kind of data-driven architecture, it is
 ```
 
 ###Data-driven architecture
-Usually SDN controllers have datastore supporting pubsub:
+Usually, SDN controllers internally have datastore supporting pubsub:
 - A combination of ZooKeeper and Cassandra
 - A combination of Redis and another datastore
+- Hazelcast
 - MD-SAL
+- And many others...
+
+You may also add MongoDB and etcd to the list.
 
 Plugins attached to datastore communicate with each other indirectly via the datastore's pubsub feature.
 
