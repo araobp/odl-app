@@ -58,3 +58,9 @@ Recommendation:
                                               |
                               [Instance C of your SDN controller]
 ```
+
+##Transaction/Rollback
+
+Consider how to implement transaction/rollback.
+
+Is this API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
