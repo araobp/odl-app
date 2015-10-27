@@ -40,3 +40,20 @@ Plugins attached to datastore communicate with each other indirectly via the dat
 ##Coodination of SDN controllers
 If everythings work in a same container (such as Karaf container), things are easy. If not, you may need to use something like ZooKeeper or etcd (or MD-SAL?) for coordinating SDN controllers.
 
+Recommendation:
+1. Run you SDN controller as a Karaf feature (a combination of OSGi bundles) and OpenDaylight in a same Karaf container (i.e., on a same JVM).
+2. Use "embedded" pubsub server or develop a pubsub capability on your own, and avoid using an external pubsub server (such as Redis).
+
+##HA(High-availability)
+
+- A cluster of MD-SAL (three nodes)
+- Instances of your SDN controller are attached to the cluster
+- All the instances share the same view of data
+```
+                                MD-SAL clustering (RAFT-based)
+[Instance A of your SDN controller]---[MD-SAL]--[MD-SAL]---[Instance B of your SDN controller]
+                                            |    |
+                                           [MD-SAL]
+                                              |
+                              [Instance C of your SDN controller]
+```
