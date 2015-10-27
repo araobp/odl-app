@@ -41,6 +41,7 @@ Plugins attached to datastore communicate with each other indirectly via the dat
 If everythings work in a same container (such as Karaf container), things are easy. If not, you may need to use something like ZooKeeper or etcd (or MD-SAL?) for coordinating SDN controllers.
 
 Recommendation:
+
 1. Run you SDN controller as a Karaf feature (a combination of OSGi bundles) and OpenDaylight in a same Karaf container (i.e., on a same JVM).
 2. Use "embedded" pubsub server or develop a pubsub capability on your own, and avoid using an external pubsub server (such as Redis).
 
