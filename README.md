@@ -16,6 +16,16 @@ If your SDN controller also follows this kind of data-driven architecture, it is
 [Your SDN controller]---pubsub(such as Redis)---[GW plugin]<-CRUD/DCN->[MD-SAL]
 
 ```
+
+###Data-driven architecture
+Usually SDN controllers have datastore supporting pubsub:
+- A combination of ZooKeeper and Cassandra
+- A combination of Redis and another datastore
+- MD-SAL
+
+Plugins attached to datastore communicate with each other indirectly via the datastore's pubsub feature.
+
+###The GW's role
 - OpenDaylight's CRUD/DCN is seen as MESSAGE on Redis.
 - The GW subscribes channels on MD-SAL and Redis for example.
 - The GW works as a pubsub relay and data model translator: translation between your data model schema (e.g., defined in your Java classes) and YANG Java binding.
