@@ -179,6 +179,15 @@ On the Karaf console, check the log as follows:
 opendaylight-user@root>log:tail
 ```
 
+Or you can see the log file as follows:
+```
+$ cd ~/odl-app/karaf/target/assembly/data/log
+$ tail -f karaf.log
+                :
+2015-10-29 00:17:35,914 | INFO  | CommitFutures-1  | HelloProvider                    | 170 - araobp.hello-impl - 1.0.0.SNAPSHOT | Success! null
+2015-10-29 00:17:35,915 | INFO  | lt-dispatcher-17 | HelloListener                    | 171 - araobp.hello-watcher - 1.0.0.SNAPSHOT | TranslatedDataChangeEvent{created={KeyedInstanceIdentifier{targetType=interface org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.greeting.registry.GreetingRegistryEntry, path=[org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.GreetingRegistry, org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.greeting.registry.GreetingRegistryEntry[key=GreetingRegistryEntryKey [_name=OpenDaylight]]]}=GreetingRegistryEntry{getGreeting=Hello OpenDaylight!, getName=OpenDaylight, augmentations={}}}, updated={}, removed=[], dom=DOMImmutableDataChangeEvent [created=[/(urn:opendaylight:params:xml:ns:yang:hello?revision=2015-09-04)greeting-registry/greeting-registry-entry/greeting-registry-entry[{(urn:opendaylight:params:xml:ns:yang:hello?revision=2015-09-04)name=OpenDaylight}]], updated=[], removed=[]]}
+```
+
 #Note
 
 ##Should I use OpenDaylight for my project?
