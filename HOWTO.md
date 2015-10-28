@@ -153,6 +153,7 @@ You have to think why you need to use OpenDaylight, before starting your project
 - Do I need RESTCONF APIs?
 - Do I need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
 - Does your service target a multi-vendor environment or a white-box-based network?
+- Does your networking equipment support transaction/rollback features? Or do you need transaction/rollback features?
 
 Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics.
 
