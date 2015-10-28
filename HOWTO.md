@@ -163,6 +163,8 @@ Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.htm
 {"hello:input": { "name":"OpenDaylight"}}
 ```
 
+![api-exploler](./api-exploler.png)
+
 ##[Step 11] Confirm that the data you have posted has been registered
 
 On the GUI,
