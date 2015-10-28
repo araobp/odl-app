@@ -12,8 +12,8 @@ Architecture discussion for inter-working with your SDN controller: [ARCHITECTUR
 
 ##Chapter 3: Sample implementation
 
-I am going to use etcd or ZooKeeper as a datastore for your SDN controller in this sample implementation.
+I am going to use Redis, ZooKeeper, Cassandra, Hazelcast, etcd or MongoDB as a datastore for your SDN controller in this sample implementation.
 
 ```
-[etcd or ZooKeeper]---[GW]---[MD-SAL]
+[datastore]---[GW]---[MD-SAL]
 ```
