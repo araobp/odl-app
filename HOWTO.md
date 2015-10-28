@@ -116,8 +116,22 @@ It's working! Yeah!
 
 ##[Step 10] Check if the RPC you have made is working properly
 
-Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html), find "hello", copy and paste the following input data into the GUI input parameter form:
+Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html), find "POST /operations/hello:hello-world", copy and paste the following input data into the GUI input parameter form:
 
 ```
-{"hello:input": { "name":"OpenDaylihgt"}}
+{"hello:input": { "name":"OpenDaylight"}}
+```
+
+##[Step 11] Confirm that the data you have posted has been registered
+
+On the GUI,
+```
+GET /operaional/hello:greeting-registry/
+```
+
+##[Step 12] Confirm that HelloListener has received DCN (Data Change Notification)
+
+On the Karaf console, check the log as follows:
+```
+opendaylight-user@root>log:tail
 ```
