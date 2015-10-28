@@ -110,6 +110,27 @@ Those XML files are copied to the following directory:
 $ cd <root>
 $ mvn clean install -DskipTests=true
 ```
+
+```
+[INFO] Skipping artifact installation
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO]
+[INFO] hello-api .......................................... SUCCESS [ 17.571 s]
+[INFO] hello-impl ......................................... SUCCESS [ 10.366 s]
+[INFO] hello-watcher ...................................... SUCCESS [  8.254 s]
+[INFO] hello-features ..................................... SUCCESS [42:19 min]
+[INFO] hello-karaf ........................................ SUCCESS [09:01 min]
+[INFO] hello-artifacts .................................... SUCCESS [ 14.780 s]
+[INFO] hello .............................................. SUCCESS [02:10 min]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 54:26 min
+[INFO] Finished at: 2015-10-29T00:06:39+09:00
+[INFO] Final Memory: 82M/196M
+[INFO] ------------------------------------------------------------------------
+```
 ##[Step 8] Start Karaf
 
 ```
