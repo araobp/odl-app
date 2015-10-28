@@ -135,3 +135,24 @@ On the Karaf console, check the log as follows:
 ```
 opendaylight-user@root>log:tail
 ```
+
+#Note
+
+##Should I use OpenDaylight for my project?
+
+- OpenDaylight is NOT for developing such a small application. For the first time, it takes a long time just to build the project, because Maven downloads so many artifacts from maven repositories.
+- I observed that artifacts like "akka-remoting" and "level-db" were being downloaded. Why should I use Akka and LevelDB for such a small application?
+
+You have to think why you need to use OpenDaylight, before starting your project.
+
+##Some criteria
+- Do I need to use OSGi?
+- Do I need High Availability based on RAFT/Akka/LevelDB?
+- Do I need a distributed computing famework?
+- Do I need RESTCONF APIs?
+- Do I need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
+- Does your service target a multi-vendor environment or a white-box-based network?
+
+Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics.
+
+If you are only interested in south bound APIs such as OVSDB, BGP etc, you can also find a lot of them in Golang community. OpenConfig community also provides a tool such as goyang for YANG lovers.
