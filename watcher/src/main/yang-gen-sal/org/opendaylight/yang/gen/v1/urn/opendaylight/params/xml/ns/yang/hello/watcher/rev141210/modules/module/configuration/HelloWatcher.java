@@ -8,7 +8,7 @@ import org.opendaylight.yangtools.yang.binding.Augmentable;
 
 /**
  * &lt;p&gt;This class represents the following YANG schema fragment defined in module &lt;b&gt;hello-watcher&lt;/b&gt;
- * &lt;br&gt;(Source path: &lt;i&gt;META-INF/yang/hello-impl.yang&lt;/i&gt;):
+ * &lt;br&gt;(Source path: &lt;i&gt;META-INF/yang/hello-watcher.yang&lt;/i&gt;):
  * &lt;pre&gt;
  * case hello-watcher {
  *     container broker {

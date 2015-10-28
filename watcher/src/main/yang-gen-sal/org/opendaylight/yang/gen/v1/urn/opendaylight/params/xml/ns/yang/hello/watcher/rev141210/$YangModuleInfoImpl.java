@@ -12,7 +12,7 @@ public final class $YangModuleInfoImpl implements YangModuleInfo {
     private final String name = "hello-watcher";
     private final String namespace = "urn:opendaylight:params:xml:ns:yang:hello:watcher";
     private final String revision = "2014-12-10";
-    private final String resourcePath = "/META-INF/yang/hello-impl.yang";
+    private final String resourcePath = "/META-INF/yang/hello-watcher.yang";
 
     private final Set<YangModuleInfo> importedModules;
 

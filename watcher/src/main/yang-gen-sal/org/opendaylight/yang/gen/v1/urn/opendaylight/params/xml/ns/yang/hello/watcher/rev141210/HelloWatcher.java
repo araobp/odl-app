@@ -5,7 +5,7 @@ import org.opendaylight.yangtools.yang.common.QName;
 
 /**
  * &lt;p&gt;This class represents the following YANG schema fragment defined in module &lt;b&gt;hello-watcher&lt;/b&gt;
- * &lt;br&gt;(Source path: &lt;i&gt;META-INF/yang/hello-impl.yang&lt;/i&gt;):
+ * &lt;br&gt;(Source path: &lt;i&gt;META-INF/yang/hello-watcher.yang&lt;/i&gt;):
  * &lt;pre&gt;
  * identity hello-watcher {
  *     base "()IdentitySchemaNodeImpl[base=null, qname=(urn:opendaylight:params:xml:ns:yang:controller:config?revision=2013-04-05)module-type]";
