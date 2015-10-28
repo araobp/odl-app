@@ -149,6 +149,7 @@ You have to think why you need to use OpenDaylight, before starting your project
 - Do I need to use OSGi?
 - Do I need High Availability based on RAFT/Akka/LevelDB?
 - Do I need a distributed computing famework?
+- Is the data-base-centric architecture suitable for your service?
 - Do I need RESTCONF APIs?
 - Do I need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
 - Does your service target a multi-vendor environment or a white-box-based network?
