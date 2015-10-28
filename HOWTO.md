@@ -36,6 +36,26 @@ Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle
 This is the heart of the model-driven architecture:
 [hello.yang](./api/src/main/yang/hello.yang)
 
+```
+$ pyang --format=tree hello.yang
+module: hello
+   +--rw greeting-registry
+      +--rw greeting-registry-entry* [name]
+         +--rw name        string
+         +--rw greeting?   string
+rpcs:
+   +---x hello-world
+   |  +---w input
+   |  |  +---w name?   string
+   |  +--ro output
+   |     +--ro greeting?   string
+   +---x fetch-hello-world
+      +---w input
+      |  +---w name?   string
+      +--ro output
+         +--ro greeting?   string
+```
+
 Then,
 ```
 $ cd api
