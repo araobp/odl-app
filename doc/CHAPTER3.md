@@ -2,7 +2,7 @@
 
 Hazelcast can be embedded in your Java application, thus it can run in Karaf container with OpenDaylight.
 
-Just include Hazelcast artifact(com.hazelcast/hazelcast/3.5.3) in your pom.xml to install it and to use Hazelcast's APIs from your application.
+Just include Hazelcast artifact(com.hazelcast/hazelcast/3.5.3) in your pom.xml to install it, and also to use Hazelcast's APIs from your application.
 
 I modify "HelloListener.java" a little bit to synchronizes Hazelcast with the data tree on MD-SAL:
 ```
