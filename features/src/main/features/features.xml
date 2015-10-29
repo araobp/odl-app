@@ -22,6 +22,7 @@ and is available at http://www.eclipse.org/legal/epl-v10.html
     <feature version='${project.version}'>odl-hello-api</feature>
     <bundle>mvn:araobp/hello-impl/${project.version}</bundle>
     <configfile finalname="${configfile.directory}/20-hello-impl.xml">mvn:araobp/hello-impl/${project.version}/xml/config</configfile>
+    <bundle>mvn:com.hazelcast/hazelcast/3.5.3</bundle>
     <bundle>mvn:araobp/hello-watcher/${project.version}</bundle>
     <configfile finalname="${configfile.directory}/21-hello-watcher.xml">mvn:araobp/hello-watcher/${project.version}/xml/config</configfile>
   </feature>
