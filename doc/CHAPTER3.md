@@ -41,6 +41,17 @@ http://<ip address>:5701/hazelcast/rest/maps/greeting-registry/OpenDaylight
 
 Note that you have to use IP address of the host on which Karaf container is running.
 
+Quite easy? Not at all...
 
-Quite easy!
+I implemented a Hazelcast map entry listener and I realized that this architecture causes an inifite loop:
+```
+[Hazelcast]             [GW]              [MD-SAL]
+     |                    |                   |
+     |<--put()------------|<--onDataChanged()-|
+     |---entryAdded()---->|---put()---------->|
+     |<--put()------------|<--onDataChanged()-|
+     |---entryUpdated()-->|---put()---------->|
+     |        :           |        :          |
+```
+
 
