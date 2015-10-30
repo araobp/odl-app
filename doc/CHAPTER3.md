@@ -54,6 +54,10 @@ I implemented a Hazelcast map entry listener and I realized that this architectu
      |        :           |        :          |
 ```
 
+ So I improved the code to avoid the infinite loop like this:
+ - Check if the key-value pair already exists on MD-SAL before put().
+ - Check if the key-value pair already exists on Hazelcast before put().
+
 ##Unbalanced???
 
 - Hazelcast is an embeddable datagrid for Java.
