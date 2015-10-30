@@ -64,7 +64,7 @@ What the differences?
 - MD-SAL requires data modeling (YANG schema).
 - It is rather complicated to create MD-SAL's InstanceIdentifier, whereas Hazelcast just use a simple key instead.
 
-MD-SAL is for network management, not for servers or strage management.
+MD-SAL is for network management, not for server or strage management.
 
 
 
