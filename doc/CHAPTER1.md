@@ -203,7 +203,7 @@ $ tail -f karaf.log
 
 #Note
 
-##Should I use OpenDaylight for my project?
+##Should you use OpenDaylight for your project?
 
 - OpenDaylight is NOT for developing such a small application. For the first time, it takes a long time just to build the project, because Maven downloads so many artifacts from maven repositories.
 - I observed that artifacts like "akka-remoting" and "level-db" were being downloaded. Why should I use Akka and LevelDB for such a small application?
@@ -211,12 +211,13 @@ $ tail -f karaf.log
 You have to think why you need to use OpenDaylight, before starting your project.
 
 ##Some criteria
-- Do I need to use OSGi?
-- Do I need High Availability based on RAFT/Akka/LevelDB?
-- Do I need a distributed computing famework?
+- Do you need to use OSGi?
+- Do you need High Availability based on RAFT/Akka/LevelDB?
+- Do you need a distributed computing famework?
 - Is the data-base-centric architecture suitable for your service?
-- Do I need RESTCONF APIs?
-- Do I need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
+- Do you need RESTCONF APIs?
+- Do you need MD-SAL as a distributed data base supporting YANG schema language, and supporting transactional operations.
+- Do you need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
 - Does your service target a multi-vendor environment or a white-box-based network?
 - Does your networking equipment support transaction/rollback features? Or do you need transaction/rollback features?
 
