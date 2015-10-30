@@ -111,6 +111,19 @@ $ cd <root>
 $ mvn clean install -DskipTests=true
 ```
 
+Note: to build the app that you downloaded from this github repo, modify pom.xml as follows: 
+```
+  <modules>
+    <module>api</module>
+    <module>impl</module>
+    <module>watcher</module>            (remove <!-- -->)
+    <!--<module>watcher-hz</module>-->  (add <!-- -->)
+    <module>karaf</module>
+    <module>features</module>
+    <module>artifacts</module>
+  </modules>
+  ```
+
 ```
 [INFO] Skipping artifact installation
 [INFO] ------------------------------------------------------------------------
