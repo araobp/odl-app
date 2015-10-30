@@ -54,4 +54,18 @@ I implemented a Hazelcast map entry listener and I realized that this architectu
      |        :           |        :          |
 ```
 
+##Unbalanced???
+
+- Hazelcast is an embeddable datagrid for Java.
+- MD-SAL is also an embeddable datagrid for Java.
+
+What the differences?
+- Hazelcast cannot handle complex (or deeply-nested) data structure, but it does not require a schema lang for modeling.
+- MD-SAL requires data modeling (YANG schema).
+- It is rather complicated to create MD-SAL's InstanceIdentifier, whereas Hazelcast just use a simple key instead.
+
+MD-SAL is for network management, not for servers or strage management.
+
+
+
 
