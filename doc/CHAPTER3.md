@@ -2,7 +2,7 @@
 
 Hazelcast can be embedded in your Java application, thus it can run in Karaf container with OpenDaylight.
 
-Just include Hazelcast artifact(com.hazelcast/hazelcast/3.5.3) in your pom.xml to install it and to use Hazelcast's APIs from your application.
+Just include Hazelcast artifact(com.hazelcast/hazelcast/3.5.3) in your pom.xml to install it, and also to use Hazelcast's APIs from your application.
 
 I modify "HelloListener.java" a little bit to synchronizes Hazelcast with the data tree on MD-SAL:
 ```
@@ -41,6 +41,31 @@ http://<ip address>:5701/hazelcast/rest/maps/greeting-registry/OpenDaylight
 
 Note that you have to use IP address of the host on which Karaf container is running.
 
+Quite easy? Not at all...
 
-Quite easy!
+I implemented a Hazelcast map entry listener and I realized that this architecture causes an inifite loop:
+```
+[Hazelcast]             [GW]              [MD-SAL]
+     |                    |                   |
+     |<--put()------------|<--onDataChanged()-|
+     |---entryAdded()---->|---put()---------->|
+     |<--put()------------|<--onDataChanged()-|
+     |---entryUpdated()-->|---put()---------->|
+     |        :           |        :          |
+```
+
+##Unbalanced???
+
+- Hazelcast is an embeddable datagrid for Java.
+- MD-SAL is also an embeddable datagrid for Java.
+
+What the differences?
+- Hazelcast cannot handle complex (or deeply-nested) data structure, but it does not require a schema lang for modeling.
+- MD-SAL requires data modeling (YANG schema).
+- It is rather complicated to create MD-SAL's InstanceIdentifier, whereas Hazelcast just use a simple key instead.
+
+MD-SAL is for network management, not for server or strage management.
+
+
+
 
