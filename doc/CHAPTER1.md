@@ -157,7 +157,7 @@ It's working! Yeah!
 
 ##[Step 10] Check if the RPC you have made is working properly
 
-Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html), find "POST /operations/hello:hello-world", copy and paste the following input data into the GUI input parameter form:
+Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html) (user: admin, password: admin), find "POST /operations/hello:hello-world", copy and paste the following input data into the GUI input parameter form:
 
 ```
 {"hello:input": { "name":"OpenDaylight"}}
