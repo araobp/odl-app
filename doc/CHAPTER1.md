@@ -212,7 +212,7 @@ You have to think why you need to use OpenDaylight, before starting your project
 
 ##Some criteria
 - OpenDaylight is sort of multi-vendor NMS. Are you going to develop an application for managing your network?
-- OpenDaylight does not support networkin equipment supporint CLI-only.
+- OpenDaylight does not support networkin equipment supporing CLI-only.
 - If your networking equipment is software switch (e.g., Open vSwitch) or white box, there are plenty of other SDN controllers out there.
 - Do you need to use OSGi? These days you may also use PaaS(e,g,. Kubernetes and Docker) and Linux containers with a variety of open source software components instead of Java-only OSGi and artifacts.
 - Do you need High Availability based on RAFT/Akka/LevelDB?
