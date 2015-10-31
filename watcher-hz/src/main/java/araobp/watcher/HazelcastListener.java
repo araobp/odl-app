@@ -23,8 +23,8 @@ import com.hazelcast.internal.ascii.rest.RestValue;
 import com.hazelcast.map.listener.EntryAddedListener;
 
 /**
- * This class listens to map entry events emitted from Hazelcast, then
- * write the value to the greeting registry on MD-SAL.
+ * This class listens to map entry events emitted from Hazelcast, then write the
+ * value to the greeting registry on MD-SAL.
  * 
  * @author arao
  *
@@ -52,23 +52,29 @@ public class HazelcastListener implements EntryAddedListener<String, RestValue> 
         .read(LogicalDatastoreType.OPERATIONAL, iid);
 
     try {
+      boolean go = false;
       Optional<GreetingRegistryEntry> opt = rtFuture.get();
-      String greeting = opt.get().getGreeting();
-      if (!greeting.equals(v)) {
-        GreetingRegistryEntryBuilder builder = new GreetingRegistryEntryBuilder();
-        GreetingRegistryEntry newGreeting = builder
-            .setName(k)
-            .setGreeting(v)
-            .build();
-        WriteTransaction wt = db.newWriteOnlyTransaction();
-        wt.put(LogicalDatastoreType.OPERATIONAL, iid, newGreeting);
-        CheckedFuture<Void, TransactionCommitFailedException> wtFuture = wt.submit();
-        try {
-          wtFuture.checkedGet();
-        } catch (TransactionCommitFailedException e) {
-          wt.cancel();
+      GreetingRegistryEntry ent = opt.orNull();  // null if the entry is absent.
+      if (ent == null) {
+        go = true;
+      } else if (ent != null) {
+        String greeting = ent.getGreeting();
+        if (!greeting.equals(v)) {
+          go = true;
         }
       }
+      if (go) {
+          GreetingRegistryEntryBuilder builder = new GreetingRegistryEntryBuilder();
+          GreetingRegistryEntry newGreeting = builder.setName(k).setGreeting(v).build();
+          WriteTransaction wt = db.newWriteOnlyTransaction();
+          wt.put(LogicalDatastoreType.OPERATIONAL, iid, newGreeting);
+          CheckedFuture<Void, TransactionCommitFailedException> wtFuture = wt.submit();
+          try {
+            wtFuture.checkedGet();
+          } catch (TransactionCommitFailedException e) {
+            wt.cancel();
+          }
+        }
     } catch (InterruptedException | ExecutionException e) {
       LOG.error("get failed", e);
     }
