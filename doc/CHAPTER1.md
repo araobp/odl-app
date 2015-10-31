@@ -211,16 +211,21 @@ $ tail -f karaf.log
 You have to think why you need to use OpenDaylight, before starting your project.
 
 ##Some criteria
-- Do you need to use OSGi?
+- OpenDaylight is sort of multi-vendor NMS. Are you going to develop an application for managing your network?
+- OpenDaylight does not support networkin equipment supporint CLI-only.
+- If your networking equipment is software switch (e.g., Open vSwitch) or white box, there are plenty of other SDN controllers out there.
+- Do you need to use OSGi? These days you may also use PaaS(e,g,. Kubernetes and Docker) and Linux containers with a variety of open source software components instead of Java-only OSGi and artifacts.
 - Do you need High Availability based on RAFT/Akka/LevelDB?
 - Do you need a distributed computing famework?
 - Is the data-base-centric architecture suitable for your service?
 - Do you need RESTCONF APIs?
 - Do you need MD-SAL as a distributed data base supporting YANG schema language, and supporting transactional operations.
 - Do you need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
-- Does your service target a multi-vendor environment or a white-box-based network?
 - Does your networking equipment support transaction/rollback features? Or do you need transaction/rollback features?
+- YANG is just a modeling language, not a protocol.
+- Do you want to use NETCONF/XML to configure your applications (dependency injection) running on MD-SAL? Do you need three-phase commit transaction for application configuration?
+- If the data structure that you are going to store onto a distributed database is relatively simple (tree structure with two or three levels) and you prefer data-driven architecture, you have other choices such as ZooKeeper/Cassandra or Hazelcast. 
 
-Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics.
+Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics, targetting a few of very specific use cases such as traffic engineering in a multi-vendor environment.
 
 If you are only interested in south bound APIs such as OVSDB, BGP etc, you can also find a lot of them in Golang community. OpenConfig community also provides a tool such as goyang for YANG lovers.
