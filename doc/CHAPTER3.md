@@ -208,6 +208,8 @@ What the differences?
 
 MD-SAL is for network management, not for server or strage management.
 
+I know that ONOS takes a simpler approach than OpenDaylight in terms of distributed computing and distributed data store, but ONOS is sort of high-performance OpenFlow controller and not for network management.
+
 
 
 
