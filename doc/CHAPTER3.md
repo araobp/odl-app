@@ -208,6 +208,15 @@ MD-SAL is for network management, not for server or strage management.
 
 I know that ONOS (that used Hazelcast but stopped using it) takes a simpler approach than OpenDaylight in terms of distributed computing and distributed data store, but ONOS is sort of high-performance OpenFlow controller and not for network management.
 
+##Simpler MD-SAL???
 
+I think MD-SAL is for large networks. Then, how about MD-SAL for small or mid-scale networks?
+
+- No OSGi.
+- Use Python or Golang instead of Java?
+- Use DevOps tools? But most of them are not optimized for network management.
+- Develop something new? You cannot develop everything from scratch. Golang community is becoming very interesting and you could find some Go-something components that you can use for your project.
+- Maybe you don't need high-throughput and you may resort to pessimistic locking startegy.
+- Or buy a commercial product?
 
 
