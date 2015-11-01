@@ -109,7 +109,8 @@ And finally it worked!
 <
 * Connection #0 to host localhost left intact
 {"greeting-registry":{"greeting-registry-entry":[{"name":"OpenDaylight","greeting":"RestValue{contentType='text/plain', value=\"Hello OpenDaylight!\"}"}]}}* Closing connection #0
-arao@debian:~/odl-app/util$ ./hz-rest-get.sh OpenDaylight
+
+~/odl-app/util$ ./hz-rest-get.sh OpenDaylight
 * About to connect() to localhost port 5701 (#0)
 *   Trying ::1...
 * connected
