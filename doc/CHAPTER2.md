@@ -56,3 +56,17 @@ Recommendation:
 Consider how to implement transaction/rollback.
 
 Is this API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
+
+##Your SDN controller is sort of a southbound plugin for MD-SAL
+
+Compare!
+```
+          [MD-SAL]                         [MD-SAL]
+             |                                |
+    [Your SDN controller]                 [Driver]
+             |                                |
+    [Your networking equipment]   [Your networking equipment]
+```
+You must have noticed that there areno differences between the above two.
+
+SDN is about synchronizing data between MD-SAL and networking equipment.
