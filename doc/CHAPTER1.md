@@ -228,6 +228,6 @@ My impression since I touched MD-SAL in June 2014:
 - Do you want to use NETCONF/XML to configure your applications (dependency injection) running on MD-SAL? Do you need three-phase commit transaction for application configuration? Most of cases, config files under "/etc" in a simpler format (e.g., YAML) suffice, and you don't write XML-payload for NETCONF to configure your applications.
 - If the data structure that you are going to store onto a distributed database is relatively simple (tree structure with two or three levels) and you still prefer data-driven architecture, you have other choices such as ZooKeeper/Cassandra or Hazelcast. 
 
-Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics, targetting very specific use cases such as traffic engineering in a multi-vendor "blackbox" environment.
+Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics, targetting very specific use cases such as traffic engineering or service provisioning automation for a very large-scale network in a multi-vendor "blackbox" environment... And your software development team members shoud be highly skilled.
 
 If you are only interested in south bound APIs such as OVSDB, BGP etc, you can also find a lot of them in Golang community. OpenConfig community also provides a tool such as goyang for YANG lovers.
