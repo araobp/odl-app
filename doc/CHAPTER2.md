@@ -67,6 +67,18 @@ Compare!
              |                                |
     [Your networking equipment]   [Your networking equipment]
 ```
-You must have noticed that there areno differences between the above two.
+You must have noticed that there are no differences between the above two.
 
 SDN is about synchronizing data between MD-SAL and networking equipment.
+
+What about this?
+```
+          [MD-SAL]                         [MD-SAL]
+             |                                |
+             X Disconnected               [Driver]
+             |                                |
+    [Your SDN controller]                     X Disconnected
+             |                                |
+    [Your networking equipment]   [Your networking equipment]
+```
+Network partition (split-brain case) causes data conflict (out of sync) between MD-SAL and your SDN controller or MD-SAL and networking equipment, and that is something we have to take into account seriously.
