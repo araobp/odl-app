@@ -192,7 +192,7 @@ RestValue{contentType='text/plain', value="GutenTag"}* Closing connection #0
 {"greeting-registry":{"greeting-registry-entry":[{"name":"Hazelcast","greeting":"RestValue{contentType='text/plain', value=\"GutenTag\"}"},{"name":"OpenDaylight","greeting":"RestValue{contentType='text/plain', value=\"Hello OpenDaylight!\"}"}]}}* Closing connection #0
 ```
 
-BUT what about auto-conflict-detection/auto-conflict-resolution, transaction collisions between Hazelcast and MD-SAL, and transaction/rollback features??? MD-SAL does not have support for these problems --- never ending probrems I have not been able to resolve for the past two years...
+BUT what about auto-conflict-detection/auto-conflict-resolution, transaction collisions between Hazelcast and MD-SAL, and transaction/rollback features??? MD-SAL does not have any support for those problems --- never ending probrems I have not been able to resolve for the past two or three years...
 
 ##Unbalanced???
 
