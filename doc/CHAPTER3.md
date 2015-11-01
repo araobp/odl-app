@@ -9,8 +9,6 @@ I modify "HelloListener.java" a little bit to synchronizes Hazelcast with the da
 [Hazelcast]---[GW]---[MD-SAL]
 ```
 
-(The old one was renamed as "HelloListener.java_wo_hazelcast")
-
 And don't forget to include Hazelcast artifact(bundle) in Karaf features:
 ```
 <bundle>mvn:com.hazelcast/hazelcast/3.5.3</bundle>
