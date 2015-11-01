@@ -212,14 +212,15 @@ You have to think why you need to use OpenDaylight, before starting your project
 
 ##Some criteria
 - OpenDaylight is sort of multi-vendor NMS. Are you going to develop an application for managing your network?
-- OpenDaylight does not support networkin equipment supporing CLI-only.
+- OpenDaylight does not support networkin equipment supporting CLI-only. If your equipment supports CLI only, you had better consider using a DevOps tool such as Ansible or buy a commercial product.
 - If your networking equipment is software switch (e.g., Open vSwitch) or white box, there are plenty of other SDN controllers out there.
 - Do you need to use OSGi? These days you may also use PaaS(e,g,. Kubernetes and Docker) and Linux containers with a variety of open source software components instead of Java-only OSGi and artifacts.
-- Do you need High Availability based on RAFT/Akka/LevelDB?
+- Do you need High Availability based on RAFT/Akka/LevelDB? There are other distributed databases you can use, for example, ZooKeeper/Cassandra, Hazelcast, atomix/copycat or etcd.
+- If you want to chose A and P from CAP(Consistency/Availability/PartitionTolerance) Theorem, MD-SAL might not be the right solution, since it does not have conflict-detection and conflict-resolution capabilities. State between MD-SAL and network elements can be out of sync anytime, bacause of network partition.
 - Do you need a distributed computing famework?
-- Is the data-base-centric architecture suitable for your service?
-- Do you need RESTCONF APIs?
-- Do you need MD-SAL as a distributed data base supporting YANG schema language, and supporting transactional operations.
+- Is the data-base-centric or model-driven architecture suitable for your service? Most of web application frameworks are API-centric. Do you know JAX-RS?
+- Do you need RESTCONF APIs? We are not sure if it will become widespread in future, or we have other transports such as gRPC.
+- Do you need MD-SAL as a distributed data base supporting YANG schema language, and supporting transactional operations. Or do you have deep knowledge on conncurrent/palalle computing and exclsuion processing? Do you know pessimistic/optimistic locking? Do you know MVCC? If not, you will face difficulties when you are using MD-SAL's DataBroker APIs.
 - Do you need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
 - Does your networking equipment support transaction/rollback features? Or do you need transaction/rollback features?
 - YANG is just a modeling language, not a protocol.
