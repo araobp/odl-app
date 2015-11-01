@@ -58,6 +58,143 @@ I implemented a Hazelcast map entry listener and I realized that this architectu
  - Check if the key-value pair already exists on MD-SAL before put().
  - Check if the key-value pair already exists on Hazelcast before put().
 
+And finally it worked!
+```
+~/odl-app/util$ ./md-sal-restconf-post.sh
+* About to connect() to localhost port 8181 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 8181 (#0)
+* Server auth using Basic with user 'admin'
+> POST /restconf/operations/hello:hello-world HTTP/1.1
+> Authorization: Basic YWRtaW46YWRtaW4=
+> User-Agent: curl/7.26.0
+> Host: localhost:8181
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 41
+>
+* upload completely sent off: 41 out of 41 bytes
+* additional stuff not fine transfer.c:1037: 0 0
+* additional stuff not fine transfer.c:1037: 0 0
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Type: application/yang.operation+json
+< Transfer-Encoding: chunked
+< Server: Jetty(8.1.15.v20140411)
+<
+* Connection #0 to host localhost left intact
+{"output":{"greeting":"Hello OpenDaylight!"}}* Closing connection #0
+
+~/odl-app/util$ ./md-sal-restconf-get.sh
+* About to connect() to localhost port 8181 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 8181 (#0)
+* Server auth using Basic with user 'admin'
+> GET /restconf/operational/hello:greeting-registry HTTP/1.1
+> Authorization: Basic YWRtaW46YWRtaW4=
+> User-Agent: curl/7.26.0
+> Host: localhost:8181
+> Accept: */*
+> Content-Type: application/json
+>
+* additional stuff not fine transfer.c:1037: 0 0
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Type: application/yang.data+json
+< Vary: Accept-Encoding, User-Agent
+< Transfer-Encoding: chunked
+< Server: Jetty(8.1.15.v20140411)
+<
+* Connection #0 to host localhost left intact
+{"greeting-registry":{"greeting-registry-entry":[{"name":"OpenDaylight","greeting":"RestValue{contentType='text/plain', value=\"Hello OpenDaylight!\"}"}]}}* Closing connection #0
+arao@debian:~/odl-app/util$ ./hz-rest-get.sh OpenDaylight
+* About to connect() to localhost port 5701 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 5701 (#0)
+> GET /hazelcast/rest/maps/greeting-registry/OpenDaylight HTTP/1.1
+> User-Agent: curl/7.26.0
+> Host: localhost:5701
+> Accept: */*
+> Content-Type: text/plain
+>
+* additional stuff not fine transfer.c:1037: 0 0
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Type: text/plain
+< Content-Length: 19
+<
+* Connection #0 to host localhost left intact
+Hello OpenDaylight!* Closing connection #0
+
+~/odl-app/util$ ./hz-rest-post.sh Hazelcast GutenTag
+* About to connect() to localhost port 5701 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 5701 (#0)
+> POST /hazelcast/rest/maps/greeting-registry/Hazelcast HTTP/1.1
+> User-Agent: curl/7.26.0
+> Host: localhost:5701
+> Accept: */*
+> Content-Type: text/plain
+> Content-Length: 8
+>
+* upload completely sent off: 8 out of 8 bytes
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Length: 0
+<
+* Connection #0 to host localhost left intact
+* Closing connection #0
+
+~/odl-app/util$ ./hz-rest-get.sh Hazelcast
+* About to connect() to localhost port 5701 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 5701 (#0)
+> GET /hazelcast/rest/maps/greeting-registry/Hazelcast HTTP/1.1
+> User-Agent: curl/7.26.0
+> Host: localhost:5701
+> Accept: */*
+> Content-Type: text/plain
+>
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Type: text/plain
+< Content-Length: 53
+<
+* Connection #0 to host localhost left intact
+RestValue{contentType='text/plain', value="GutenTag"}* Closing connection #0
+
+~/odl-app/util$ ./md-sal-restconf-get.sh
+* About to connect() to localhost port 8181 (#0)
+*   Trying ::1...
+* connected
+* Connected to localhost (::1) port 8181 (#0)
+* Server auth using Basic with user 'admin'
+> GET /restconf/operational/hello:greeting-registry HTTP/1.1
+> Authorization: Basic YWRtaW46YWRtaW4=
+> User-Agent: curl/7.26.0
+> Host: localhost:8181
+> Accept: */*
+> Content-Type: application/json
+>
+* additional stuff not fine transfer.c:1037: 0 0
+* HTTP 1.1 or later with persistent connection, pipelining supported
+< HTTP/1.1 200 OK
+< Content-Type: application/yang.data+json
+< Vary: Accept-Encoding, User-Agent
+< Transfer-Encoding: chunked
+< Server: Jetty(8.1.15.v20140411)
+<
+* Connection #0 to host localhost left intact
+{"greeting-registry":{"greeting-registry-entry":[{"name":"Hazelcast","greeting":"RestValue{contentType='text/plain', value=\"GutenTag\"}"},{"name":"OpenDaylight","greeting":"RestValue{contentType='text/plain', value=\"Hello OpenDaylight!\"}"}]}}* Closing connection #0
+```
+
+BUT what about auto-conflict-detection/auto-conflict-resolution, transaction collisions between Hazelcast and MD-SAL, and transaction/rollback features??? MD-SAL does not have support for these problems --- never ending probrems I have not been able to resolve for the past two years...
+
 ##Unbalanced???
 
 - Hazelcast is an embeddable datagrid for Java.
