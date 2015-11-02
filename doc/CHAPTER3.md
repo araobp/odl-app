@@ -194,29 +194,4 @@ RestValue{contentType='text/plain', value="GutenTag"}* Closing connection #0
 
 BUT what about auto-conflict-detection/auto-conflict-resolution, transaction collisions between Hazelcast and MD-SAL, and transaction/rollback features??? MD-SAL does not have any support for those problems --- never ending probrems I have not been able to resolve for the past two or three years...
 
-##Unbalanced???
-
-- Hazelcast is an embeddable datagrid for Java.
-- MD-SAL is also an embeddable datagrid for Java.
-
-What the differences?
-- Hazelcast cannot handle complex (or deeply-nested) data structure, but it does not require a schema lang for modeling.
-- MD-SAL requires data modeling (YANG schema).
-- It is rather complicated to create MD-SAL's InstanceIdentifier, whereas Hazelcast just use a simple key instead.
-
-MD-SAL is for network management, not for server or strage management.
-
-I know that ONOS (that used Hazelcast but stopped using it) takes a simpler approach than OpenDaylight in terms of distributed computing and distributed data store, but ONOS is sort of high-performance OpenFlow controller and not for network management.
-
-##Simpler MD-SAL???
-
-I think MD-SAL is for large networks. Then, how about MD-SAL for small or mid-scale networks?
-
-- No OSGi.
-- Use Python or Golang instead of Java?
-- Use DevOps tools? But most of them are not optimized for network management.
-- Develop something new? You cannot develop everything from scratch. Golang community is becoming very interesting and you could find some Go-something components that you can use for your project.
-- Maybe you don't need high-throughput and you may resort to pessimistic locking startegy.
-- Or buy a commercial product?
-
 

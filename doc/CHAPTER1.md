@@ -201,33 +201,3 @@ $ tail -f karaf.log
 2015-10-29 00:17:35,915 | INFO  | lt-dispatcher-17 | HelloListener                    | 171 - araobp.hello-watcher - 1.0.0.SNAPSHOT | TranslatedDataChangeEvent{created={KeyedInstanceIdentifier{targetType=interface org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.greeting.registry.GreetingRegistryEntry, path=[org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.GreetingRegistry, org.opendaylight.yang.gen.v1.urn.opendaylight.params.xml.ns.yang.hello.rev150904.greeting.registry.GreetingRegistryEntry[key=GreetingRegistryEntryKey [_name=OpenDaylight]]]}=GreetingRegistryEntry{getGreeting=Hello OpenDaylight!, getName=OpenDaylight, augmentations={}}}, updated={}, removed=[], dom=DOMImmutableDataChangeEvent [created=[/(urn:opendaylight:params:xml:ns:yang:hello?revision=2015-09-04)greeting-registry/greeting-registry-entry/greeting-registry-entry[{(urn:opendaylight:params:xml:ns:yang:hello?revision=2015-09-04)name=OpenDaylight}]], updated=[], removed=[]]}
 ```
 
-#Note
-
-##Should you use OpenDaylight for your project?
-
-- OpenDaylight is NOT for developing such a small application. For the first time, it takes a long time just to build the project, because Maven downloads so many artifacts from maven repositories.
-- I observed that artifacts like "akka-remoting" and "level-db" were being downloaded. Why should I use Akka and LevelDB for such a small application?
-
-You have to think why you need to use OpenDaylight, before starting your project.
-
-##Some criteria
-My impression since I touched MD-SAL in June 2014:
-- OpenDaylight is sort of multi-vendor NMS. Are you going to develop an application for managing your network?
-- OpenDaylight does not support networking equipment supporting CLI-only. If your equipment supports CLI only, you had better consider using a DevOps tool such as Ansible or buy a commercial product. I developed SSH plugin for MD-SAL, but I would use a DevOps tool such as Ansible or Salt rather than MD-SAL w/ SSH.
-- If your networking equipment is software switch (e.g., Open vSwitch) or white box, there are plenty of other SDN controllers out there.
-- Do you need to use OSGi? These days you may also use PaaS(e,g,. Kubernetes and Docker) and Linux containers with a variety of open source software components instead of Java-only OSGi and artifacts.
-- Do you need High Availability based on RAFT/Akka/LevelDB? There are other distributed databases you can use, for example, ZooKeeper/Cassandra, Hazelcast, atomix/copycat or etcd.
-- If you want to chose A and P from CAP(Consistency/Availability/PartitionTolerance) Theorem, MD-SAL might not be the right solution, since it does not have conflict-detection and conflict-resolution capabilities. State between MD-SAL and network elements can be out of sync anytime, bacause of network partition.
-- Do you need a distributed computing famework based on MD-SAL? Or Akka's Actor Model is also for distributed computing. You could develop a SDN controller based on Akka...
-- Is the data-base-centric or model-driven architecture suitable for your service? Most of web application frameworks are API-centric. Do you know JAX-RS?
-- Do you need RESTCONF APIs? We are not sure if it will become standard in future, or we have other transports such as gRPC.
-- Do you need MD-SAL as a distributed data base supporting YANG schema language, and supporting transactional operations. Or do you have deep knowledge on conncurrent/palalle computing and exclsuion processing? Do you know pessimistic/optimistic locking? Do you know MVCC? If not, you will face difficulties when you are using MD-SAL's DataBroker APIs.
-- Do you need YANG modeling for everything, including "internal APIs" for OSGi bundles in the container?
-- Does your networking equipment support transaction/rollback features? Or do you need transaction/rollback features?
-- YANG is just a modeling language, not a protocol. There are other modeling languages such as JSON-based one for OVSDB, or if you were Golang lover, you would use Golang struct as a schema language, that is compatible with JSON/YAML.
-- Do you want to use NETCONF/XML to configure your applications (dependency injection) running on MD-SAL? Do you need three-phase commit transaction for application configuration? Most of cases, config files under "/etc" in a simpler format (e.g., YAML) suffice, and you don't write XML-payload for NETCONF to configure your applications.
-- If the data structure that you are going to store onto a distributed database is relatively simple (tree structure with two or three levels) and you still prefer data-driven architecture, you have other choices such as ZooKeeper/Cassandra or Hazelcast. 
-
-Maybe, OpenDaylight is suitable for a large project including controllers, workflows, databases and other business logics, targetting very specific use cases such as traffic engineering or service provisioning automation for a very large-scale network in a multi-vendor "blackbox" environment... And your software development team members shoud be highly skilled.
-
-If you are only interested in south bound APIs such as OVSDB, BGP etc, you can also find a lot of them in Golang community. OpenConfig community also provides a tool such as goyang for YANG lovers.
