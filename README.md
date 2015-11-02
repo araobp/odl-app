@@ -13,3 +13,7 @@ Architecture discussion for inter-working with your SDN controller: [ARCHITECTUR
 ##Chapter 3: Sample implementation
 
 I use Hazelcast for this sample implementation: [SYNC-WITH-HAZELCAST](./doc/CHAPTER3.md)
+
+##Homework
+
+This is the end of DIY on MD-SAL, and it is time to summarize what you have done: [HOMEWORK](./doc/HOMEWORK.md)
