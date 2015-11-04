@@ -34,7 +34,7 @@ Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle
 ##[Step 4] Define YANG model
 
 This is the heart of the model-driven architecture:
-[hello.yang](./api/src/main/yang/hello.yang)
+[hello.yang](../api/src/main/yang/hello.yang)
 
 ```
 $ pyang --format=tree hello.yang
