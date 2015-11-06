@@ -97,4 +97,4 @@ What about this?
 ```
 Network partition (split-brain case) causes data conflict (out of sync) between MD-SAL and your SDN controller or MD-SAL and networking equipment, and that is something we have to take into account seriously.
 
-If you use OpenDaylight as OpenFlow Controller, you don't need to consider the problem above, because all the flows on the swich are stateless (ephemeral).
+If you use OpenDaylight as OpenFlow Controller, you don't need to consider the conflict problem above, because all the flows on the swich are stateless (ephemeral), although all the PacketIn are dropped and new flows are never created.
