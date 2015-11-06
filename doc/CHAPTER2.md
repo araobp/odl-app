@@ -32,10 +32,36 @@ Plugins attached to datastore communicate with each other indirectly via the dat
 ##Coodination of SDN controllers
 If everythings work in a same container (such as Karaf container), things are easy. If not, you may need to use something like ZooKeeper or etcd (or MD-SAL?) for coordinating SDN controllers.
 
-Recommendation:
+Recommendation 1:
 
 1. Run you SDN controller as a Karaf feature (a combination of OSGi bundles) and OpenDaylight in a same Karaf container (i.e., on a same JVM).
 2. Use "embedded" pubsub server or develop a pubsub capability on your own, and avoid using an external pubsub server (such as Redis).
+
+```
++------------+
+| [Feature]  |
+| [Feature]  |
+| [Feature]  |
++------------+
+Karaf OSGi container (limited to Java)
+```
+
+Recommendation 2:
+
+But, wait! What if you like Python or Golang to develop your SDN controller? In this case, OSGi becomes meaningless and another choice is to use a PaaS infrastructure and chose your favorite pubsub or MQ (Redis, RabbitMQ, ActiveMQ etc) and database (SQL or NoSQL). PaaS also supports rolling update and load balancer capabilites required for a commercial deployment.
+
+```
+[Feature]  [Feature]  [Feature]
+Container  Container  Container
+    |          |          |
+   -+------+---+----------+-- pubsub or MQ
+           |
+ [router/load balancer]
+           |
+   production network
+
+Linux Container for every feature
+```
 
 ##HA(High-availability)
 
