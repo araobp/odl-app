@@ -29,3 +29,6 @@ client             +----------------------------------------+
 
 ```
 You may also use part of the code here: https://wiki.opendaylight.org/view/Messaging4Transport:AMQP_Bindings_for_MD-SAL
+
+[7] Run the implementation on Kubernetes/Docker.
+
