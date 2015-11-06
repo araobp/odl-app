@@ -16,4 +16,4 @@ I use Hazelcast for this sample implementation: [SYNC-WITH-HAZELCAST](./doc/CHAP
 
 ##Homework
 
-This is the end of DIY on MD-SAL, and it is time to summarize what you have done: [HOMEWORK](./doc/HOMEWORK.md)
+This is the end of DIY on MD-SAL, and it is time to review what you have done: [HOMEWORK](./doc/HOMEWORK.md)
