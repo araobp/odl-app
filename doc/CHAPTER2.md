@@ -69,9 +69,7 @@ Consider how to implement transaction/rollback.
 
 Is this MD-SAL API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
 
-Is MD-SAL right architecture from a view point of transaction/rollback for networking equipment configuration? Does it support multi-generation config backup?
-
-I am not sure for what use cases OpenDaylight is really useful... Maybe, coodination/orchestration of multiple SDN controllers???
+Is MD-SAL architecture right from a view point of transaction/rollback for networking equipment configuration?
 
 ##Your SDN controller is sort of a southbound plugin for MD-SAL
 
@@ -98,3 +96,5 @@ What about this?
     [Your networking equipment]   [Your networking equipment]
 ```
 Network partition (split-brain case) causes data conflict (out of sync) between MD-SAL and your SDN controller or MD-SAL and networking equipment, and that is something we have to take into account seriously.
+
+If you use OpenDaylight as OpenFlow Controller, you don't need to consider the problem above, because all the flows on the swich are stateless (ephemeral).
