@@ -30,5 +30,6 @@ client             +----------------------------------------+
 ```
 You may also use part of the code here: https://wiki.opendaylight.org/view/Messaging4Transport:AMQP_Bindings_for_MD-SAL
 
-[7] Run the implementation on Kubernetes/Docker.
+[7] Run the implementation on Kubernetes/Docker. Study "SDN for developing SDN" and why PaaS is necessary for SDN development.
 
+You will also see that a network simulator running on Docker is very useful for a life cycle of SDN development.
