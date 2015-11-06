@@ -18,7 +18,7 @@ instance           |  GW                                    |
                     Karaf container
 
 ```
-[6] Modify the GW implementation and use Redis or ActiveMQ instead of Hazelcast. Create a mini-application in golang or python that interacts with hello-impl via the message but (or MQ).
+[6] Modify the GW implementation and use Redis or ActiveMQ instead of Hazelcast. Create a mini-application in golang or python that interacts with hello-impl via the message bus.
 ```
                    +----------------------------------------+
                    |                                        |
