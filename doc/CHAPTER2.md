@@ -48,7 +48,7 @@ Karaf OSGi container (limited to Java)
 
 Recommendation 2:
 
-But, wait! What if you like Python or Golang to develop your SDN controller? In this case, OSGi becomes meaningless and another choice is to use a PaaS infrastructure and chose your favorite pubsub or MQ (Redis, RabbitMQ, ActiveMQ etc) and database (SQL or NoSQL). PaaS also supports rolling update and load balancer capabilites required for a commercial deployment.
+Given that part of SDN software engineers are migrating to Golang community these days, what if you like Python or Golang to develop your SDN controller? In this case, Java-olny OSGi becomes meaningless and another choice is to use a PaaS infrastructure and chose your favorite pubsub or MQ (Redis, RabbitMQ, ActiveMQ etc) and database (SQL or NoSQL). PaaS also supports rolling update and load balancer capabilites required for a commercial deployment.
 
 ```
 [Feature]  [Feature]  [Feature]
@@ -63,25 +63,13 @@ Container  Container  Container
 Linux Container for every feature
 ```
 
-##HA(High-availability)
-
-- A cluster of MD-SAL (three nodes)
-- Instances of your SDN controller are attached to the cluster
-- All the instances share the same view of data
-```
-                                MD-SAL clustering (RAFT-based)
-[Instance A of your SDN controller]---[MD-SAL]--[MD-SAL]---[Instance B of your SDN controller]
-                                            |    |
-                                           [MD-SAL]
-                                              |
-                              [Instance C of your SDN controller]
-```
-
 ##Transaction/Rollback
 
 Consider how to implement transaction/rollback.
 
-Is this API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
+Is this MD-SAL API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
+
+Is MD-SAL right architecture from a view point of transaction/rollback for networking equipment configuration? Does it support multi-generation config backup?
 
 ##Your SDN controller is sort of a southbound plugin for MD-SAL
 
