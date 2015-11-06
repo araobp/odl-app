@@ -28,3 +28,4 @@ client             +----------------------------------------+
 (golang)            Karaf container
 
 ```
+You may also use part of the code here: https://wiki.opendaylight.org/view/Messaging4Transport:AMQP_Bindings_for_MD-SAL
