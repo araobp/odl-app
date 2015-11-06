@@ -71,6 +71,8 @@ Is this MD-SAL API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
 
 Is MD-SAL right architecture from a view point of transaction/rollback for networking equipment configuration? Does it support multi-generation config backup?
 
+I am not sure for what use cases OpenDaylight is really useful... Maybe, coodination/orchestration of multiple SDN controllers???
+
 ##Your SDN controller is sort of a southbound plugin for MD-SAL
 
 Compare!
