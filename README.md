@@ -6,7 +6,7 @@ It is time for reality check on SDN. See this: ["SDN hits rock bottom and FCoE i
 
 From my experiences in the area of SDN, I conclude that SDN is just about software architecture and engineering optimized for a specific use case, and there is no one-fits-all SDN controller or platform. From now on, we had better focus on good-quality open source software components and integrating them into a purpose-built system on PaaS.
 
-I am not sure what OpenDaylight is good for, but I thank OpenDaylight, because I have learned a lot from it: Java programming, YANG, MD-SAL, database transaction etc.
+I am not sure what use cases OpenDaylight is good for, but I thank OpenDaylight, because I have learned a lot from it: Java programming, YANG, MD-SAL, database transaction etc. At least, I can say that OpenDaylight is the best place to learn software technologies required for SDN...
 
 ##Chapter 1: Learning OpenDaylight MD-SAL
 
