@@ -6,6 +6,8 @@ It is time for reality check on SDN. See this: ["SDN hits rock bottom and FCoE i
 
 From my experiences in the area of SDN, I conclude that SDN is just about software architecture and engineering optimized for a specific use case, and there is no one-fits-all SDN controller or platform. From now on, we had better focus on good-quality open source software components and integrating them into a purpose-built system on PaaS.
 
+Let's think about using OpenDaylight as a device driver for your SDN controller or vise versa.
+
 ##Chapter 1: Learning OpenDaylight MD-SAL
 
 First, you need to learn how to write your application on OpenDaylight.
