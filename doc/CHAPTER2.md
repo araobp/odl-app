@@ -98,3 +98,16 @@ What about this?
 Network partition (split-brain case) causes data conflict (out of sync) between MD-SAL and your SDN controller or MD-SAL and networking equipment, and that is something we have to take into account seriously.
 
 If you use OpenDaylight as OpenFlow Controller, you don't need to consider the conflict problem above, because all the flows on the swich are stateless (ephemeral), although all the PacketIn are dropped and new flows are never created.
+
+##APIC-EM
+
+When I was writing code for this project, I happend to see APIC-EM architecture.
+
+APIC-EM seems to use MD-SAL for device abstraction (CLI/SNMP) and use some messaging APIs to communicate with other components via message bus (AMQP). So OpenDaylight/MD-SAL is just a device driver for APIC-EM.
+
+APIC-EM components run in Linux containers (LXC) managed by PaaS program called "Grapevine". It seems to use SQL (for config?) and NoSQL (cassandra for stats?) databases to store data.
+
+Links:
+- [APIC-EM GA Release is Here!](https://communities.cisco.com/community/developer/networking/cisco-one/apic-em/blog/2015/11/04/apic-em-ga-release-is-here)
+- [APIC-EM product documentation](http://www.cisco.com/c/en/us/products/cloud-systems-management/application-policy-infrastructure-controller-enterprise-module/index.html)
+- [Enterprise SDN -- Infonetics research](http://www.wallstreet-online.de/nachricht/7545668-infonetics-north-american-businesses-plan-to-have-sdn-live-the-lan-by-2017)
