@@ -105,7 +105,9 @@ When I was writing code for this project, I happend to see APIC-EM architecture.
 
 APIC-EM seems to use MD-SAL for device abstraction (CLI/SNMP) and use some messaging APIs to communicate with other components via message bus (AMQP). So OpenDaylight/MD-SAL is just a device driver for APIC-EM.
 
-APIC-EM components run in Linux containers (LXC) managed by PaaS program called "Grapevine". It seems to use SQL (for config?) and NoSQL (cassandra for stats?) databases to store data.
+Note: the current GA release of APIC-EM does not seem to include MD-SAL.
+
+APIC-EM components run in Linux containers (LXC) managed by PaaS program called "Grapevine". It seems to use SQL (for application config?) and NoSQL (cassandra for PaaS config?) databases to store data. I can find databases in its open source list: Cassandra, Postgresql and Hazelcast. I can also find that APIC-EM is based on Spring framework.
 
 Links:
 - [APIC-EM GA Release is Here!](https://communities.cisco.com/community/developer/networking/cisco-one/apic-em/blog/2015/11/04/apic-em-ga-release-is-here)
