@@ -9,8 +9,8 @@
 Or you can just give up transaction/rollback: http://martinfowler.com/ieeeSoftware/coffeeShop.pdf
 
 Do you think you can give up transaction/rollback for the use cases you are working on?
-For routing and tenant provisioning at DC: maybe, yes.
-For link/path and L2/L3-VPN provisioning: maybe, No.
+- For routing and tenant provisioning at DC: maybe, yes.
+- For link/path and L2/L3-VPN provisioning: maybe, No.
 
 [4] Is programming on MD-SAL easy or difficult? Why do you think so?
 
