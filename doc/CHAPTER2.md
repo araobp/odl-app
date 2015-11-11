@@ -8,6 +8,7 @@ If your SDN controller also follows this kind of data-driven architecture, it is
 [Your SDN controller]---pubsub(such as Redis)---[GW plugin]<-CRUD/DCN->[MD-SAL]
 
 ```
+You had better read this before writing code on MD-SAL: [Messaging Patterns](http://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html)
 
 ###Data-driven architecture
 Usually, SDN controllers internally have datastore supporting pubsub:
