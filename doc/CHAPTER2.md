@@ -107,7 +107,7 @@ APIC-EM seems to use MD-SAL for device abstraction (CLI/SNMP) and use some messa
 
 Note: the current GA release of APIC-EM does not seem to include MD-SAL.
 
-APIC-EM components run in Linux containers (LXC) managed by PaaS program called "Grapevine". It seems to use SQL (for application config?) and NoSQL (cassandra for PaaS config?) databases to store data. I can find databases in its open source list: Cassandra, Postgresql and Hazelcast. I can also find that APIC-EM is based on Spring framework.
+APIC-EM components run in Linux containers (LXC) managed by PaaS program called "Grapevine". It seems to use SQL (for application config?) and NoSQL (cassandra for PaaS config?) databases to store data. I can find databases in its open source list: Cassandra, Postgresql and Hazelcast. I can also find that APIC-EM is based on Spring framework, so you can use either REST API or message bus (AMQP, Redis or whatever) to use APIC-EM features from your app.
 
 Links:
 - [APIC-EM GA Release is Here!](https://communities.cisco.com/community/developer/networking/cisco-one/apic-em/blog/2015/11/04/apic-em-ga-release-is-here)
