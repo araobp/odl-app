@@ -1,22 +1,22 @@
-#How to write your OpenDaylight application
+# How to write your OpenDaylight application
 
 OpenDaylight provides us an interesting SDN framework. Especially, MD-SAL (stronglly consistent datastore to store tree-structure data with YANG schema lang) is very unique. MD-SAL also supports DCN (Data Change Notification -- pubsub), RPC, RESTCONF and RAFT-based clustering/HA (typically with three nodes).
 
 However, the biggest problem on ODL is its high learning curve. I have tried to develop a sample app on ODL. This project is to show how I have done.
 
-##[Step 1] Maven repo setting for your $HOME/.m2
+## [Step 1] Maven repo setting for your $HOME/.m2
 https://wiki.opendaylight.org/view/GettingStarted:Development_Environment_Setup
 ```
 cp -n ~/.m2/settings.xml{,.orig} ; \
 wget -q -O - https://raw.githubusercontent.com/opendaylight/odlparent/master/settings.xml > ~/.m2/settings.xml
 ```
 
-##[Step 2] ODL project skeleton generation by making use of maven "startup project archtype"
+## [Step 2] ODL project skeleton generation by making use of maven "startup project archtype"
 OpenDaylight project provides "startup project archetype": https://wiki.opendaylight.org/view/OpenDaylight_Controller:MD-SAL:Startup_Project_Archetype
 
 I just used the archetype to generate a maven project skeleton and added some codes.
 
-##[Step 3] Confirm the directory structure that the archtype has generated
+## [Step 3] Confirm the directory structure that the archtype has generated
 
 ```
 .
@@ -31,7 +31,7 @@ I just used the archetype to generate a maven project skeleton and added some co
 
 Note: I added "watcher" sub-module to the basic skeleton, to see if a new bundle can be added to the maven artifact.
 
-##[Step 4] Define YANG model
+## [Step 4] Define YANG model
 
 This is the heart of the model-driven architecture:
 [hello.yang](../api/src/main/yang/hello.yang)
@@ -65,7 +65,7 @@ That will generate Java binding (api bundle artifact) from the YANG model.
 
 You include the artifact in your pom.xml of your project to use the APIs.
 
-##[Step 5] Write your codes
+## [Step 5] Write your codes
 
 - src/main/yang ==> YANG model to manage your bundle via ODL Config Subsystem
 - src/main/config ==> The data to be sent to ODL via Config Subsystem (NETCONF) to configure your bundle at start up
@@ -87,7 +87,7 @@ HelloWatcherModule.java
     }
 ```
 
-##[Step 6] Edit features
+## [Step 6] Edit features
 Since I added a new bundle "hello-watcher", I had to modify the following files to add the bundle to the feature "hello":
 - [pom.xml](../features/pom.xml)
 - [features.xml](../features/src/main/features/features.xml)
@@ -105,7 +105,7 @@ Those XML files are copied to the following directory:
 00-netty.xml   04-xsql.xml        08-authn-config.xml    20-hello-impl.xml
 01-md-sal.xml  05-clustering.xml  10-rest-connector.xml  21-hello-watcher.xml
 ```
-##[Step 7] Build the app
+## [Step 7] Build the app
 ```
 $ cd <root>
 $ mvn clean install -DskipTests=true
@@ -144,14 +144,14 @@ Note: to build the app that you downloaded from this github repo, modify pom.xml
 [INFO] Final Memory: 82M/196M
 [INFO] ------------------------------------------------------------------------
 ```
-##[Step 8] Start Karaf
+## [Step 8] Start Karaf
 
 ```
 $ cd $HOME/odl-app/karaf/target/assembly/bin
 $ ./karaf
 ```
 
-##[Step 9] Check if the bundles you have created has started in Karaf container
+## [Step 9] Check if the bundles you have created has started in Karaf container
 ```
 opendaylight-user@root>la | grep hello
 169 | Resolved |  80 | 1.0.0.SNAPSHOT                            | hello-api                           
@@ -168,7 +168,7 @@ opendaylight-user@root>log:tail
 ```
 It's working! Yeah!
 
-##[Step 10] Check if the RPC you have made is working properly
+## [Step 10] Check if the RPC you have made is working properly
 
 Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.html) (user: admin, password: admin), find "POST /operations/hello:hello-world", copy and paste the following input data into the GUI input parameter form:
 
@@ -178,14 +178,14 @@ Open [RESTCONF API doc exploler](http://localhost:8181/apidoc/explorer/index.htm
 
 ![api-exploler](./api-exploler.png)
 
-##[Step 11] Confirm that the data you have posted has been registered
+## [Step 11] Confirm that the data you have posted has been registered
 
 On the GUI,
 ```
 GET /operaional/hello:greeting-registry/
 ```
 
-##[Step 12] Confirm that HelloListener has received DCN (Data Change Notification)
+## [Step 12] Confirm that HelloListener has received DCN (Data Change Notification)
 
 On the Karaf console, check the log as follows:
 ```
