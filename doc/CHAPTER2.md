@@ -1,4 +1,4 @@
-#Interworking with your SDN controller
+# Interworking with your SDN controller
 
 MD-SAL is basically YANG datastore with DCN(pubsub) and RPC support.
 
@@ -10,7 +10,7 @@ If your SDN controller also follows this kind of data-driven architecture, it is
 ```
 You had better read this before writing code on MD-SAL: [Messaging Patterns](http://www.enterpriseintegrationpatterns.com/patterns/messaging/toc.html)
 
-###Data-driven architecture
+### Data-driven architecture
 Usually, SDN controllers internally have datastore supporting pubsub:
 - A combination of ZooKeeper and Cassandra
 - A combination of Redis and another datastore
@@ -22,7 +22,7 @@ You may also add MongoDB and etcd to the list.
 
 Plugins attached to datastore communicate with each other indirectly via the datastore's pubsub feature.
 
-###The GW's role
+### The GW's role
 - The construct is sort of clustering (ACT-ACT).
 - OpenDaylight's CRUD/DCN is seen as MESSAGE on Redis.
 - The GW subscribes channels on MD-SAL and Redis for example.
@@ -30,7 +30,7 @@ Plugins attached to datastore communicate with each other indirectly via the dat
 - The data on Your SDN controller's datastore are synchronized with MD-SAL datastore via the GW.
 - Users may use both your SDN controller's N.B. API and OpenDaylight's RESTCONF API.
 
-##Coodination of SDN controllers
+## Coodination of SDN controllers
 If everythings work in a same container (such as Karaf container), things are easy. If not, you may need to use something like ZooKeeper or etcd (or MD-SAL?) for coordinating SDN controllers.
 
 Recommendation 1:
@@ -64,7 +64,7 @@ Container  Container  Container
 Linux Container for every feature
 ```
 
-##Transaction/Rollback
+## Transaction/Rollback
 
 Consider how to implement transaction/rollback.
 
@@ -72,7 +72,7 @@ Is this MD-SAL API still valid? https://git.opendaylight.org/gerrit/#/c/12912/9
 
 Is MD-SAL architecture right from a view point of transaction/rollback for networking equipment configuration?
 
-##Your SDN controller is sort of a southbound plugin for MD-SAL
+## Your SDN controller is sort of a southbound plugin for MD-SAL
 
 Compare!
 ```
@@ -100,7 +100,7 @@ Network partition (split-brain case) causes data conflict (out of sync) between 
 
 If you use OpenDaylight as OpenFlow Controller, you don't need to consider the conflict problem above, because all the flows on the swich are stateless (ephemeral), although all the PacketIn are dropped and new flows are never created.
 
-##APIC-EM
+## APIC-EM
 
 When I was writing code for this project, I happend to see APIC-EM architecture.
 
