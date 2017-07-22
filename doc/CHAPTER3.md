@@ -1,4 +1,4 @@
-##Hazelcast and MD-SAL
+## Hazelcast and MD-SAL
 
 Hazelcast can be embedded in your Java application, thus it can run in Karaf container with OpenDaylight.
 
@@ -14,7 +14,7 @@ And don't forget to include Hazelcast artifact(bundle) in Karaf features:
 <bundle>mvn:com.hazelcast/hazelcast/3.5.3</bundle>
 ```
 
-##Starting the app again
+## Starting the app again
 
 Start the sample application, then confirm that Hazelcast has started in Karaf container by checking the Karaf log:
 ```
